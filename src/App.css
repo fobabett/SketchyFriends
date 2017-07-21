@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html,body,.content,.App {
+  height: 100%;
+  background: linear-gradient( 45deg, #EAFFDB, #8ABAFF );
+  font-family: 'Open Sans', sans-serif;
+}
+
+#hackbit-vote-widget {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+h1 {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 50px;
+  color: #FFFFFF;
+}
+
+.active, .Canvas.active {
+  border: 5px solid #F7AF53;
+}
+
+.Canvas p {
+  color: #F7AF53;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#root {
+  background: linear-gradient( 45deg, #EAFFDB, #8ABAFF );
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.canvas {
+  width: 500px;
+  height: 500px;
+}
+
+.hidden {
+  display: none;
+}
+
+.Menu div {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FFFFFF;
+  width: 50%;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transform: translateY(50%);
+}
+
+.Menu p {
+  color: #FFFFFF;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+.Menu button,
+.Menu input {
+  display: block;
+  width: 100%;
+  border: 2px solid #E1E1E1;
+  padding: 10px;
+  background-color: #FFFFFF;
+  margin: 10px;
+  border-radius: 20px;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #D0ECE5;
+  border-color: #D0ECE5;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+button {
+  transition: ease 0.2s all;
+  cursor: pointer;
+}
+.Lobby {
+  height: 100%;
+  position: relative;
+}
+.lobby-content {
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.code {
+  color: #A5CDF5;
+  margin: 0 auto;
+  font-family: 'Cabin Sketch', cursive;
+  font-weight: bold;
+  background-color: #FEF89A;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
+  width: 50%;
+  font-size: 50px;
+}
+
+.round {
+  border-radius: 20px;
+}
+
+/*GAME*/
+.Game {
+  height: 100%;
+  box-sizing: border-box;
+  content: "";
+  /*display: table;*/
+  clear: both;
+  padding-top: 50px;
+  /*cursor: pointer;*/
+}
+
+.player {
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.round {
+  padding: 10px;
+}
+
+.player.sketchy-player {
+  border: 5px solid #CF8AFF;
+}
+
+.sketchy-word {
+  color: #CF8AFF;
+}
+
+.sketchy-word span {
+  color: #000000;
+}
+
+.points-earned {
+  background-color: #5AB22A;
+  color: #FFFFFF;
+  border-top: none;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: none !important;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  right: 0;
+  font-size: 14px;
+}
+
+input.guess::placeholder {
+  color: #CF8AFF;
+  text-transform: uppercase;
+  font-style: 20px;
+  font-weight: bold;
+}
+
+.game-header {
+  background-color: #FEF89A;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  width: 300px;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  font-family: 'Cabin Sketch', cursive;
+  z-index: 1;
+  transform: translatex(50%);
+}
+.players, .Canvas, .chat {
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  margin: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.players {
+  width: 10%;
+  text-align: left;
+  height: auto;
+}
+
+/*@media only screen  and (min-width : 1055px) {
+  .players, .Canvas, .chat {
+    display: inline-block;
+  }
+} */
+
+.players div {
+  border-top: 2px solid #E1E1E1;
+}
+
+.Canvas {
+  width: 40%;
+  /*padding: 20px;*/
+  position: relative;
+  border: 5px solid transparent;
+}
+
+.Canvas {
+  border: 5px solid transparent;
+}
+
+.timer {
+  background-color: #FFFFFF;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 10px solid #A7A7A7;
+  color: #A7A7A7;
+  top: 0;
+  font-size: 30px;
+  right: 0;
+}
+
+.timer p {
+  pointer-events: none;
+}
+
+.timer.warning {
+  border-color: #BE4444;
+  color: #BE4444;
+}
+
+.warning {
+  color: #BE4444;
+}
+
+.chat {
+  width: 20%;
+  height: 500px;
+  padding: 20px;
+}
+.chat-history {
+  height: 90%;
+  width: 100%;
+  overflow-y: scroll;
+  border: 2px solid #E1E1E1;
+  border-radius: 20px;
+  text-align: left;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.chat input {
+  width: 100%;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px solid #E1E1E1;
+}
+
+.you {
+  color: #93C1FB;
+}
+
+.friend {
+  color: #C8E7E8;
+}
+
+.modal {
+  background-color: #FEF89A;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  font-family: 'Cabin Sketch', cursive;
+  z-index: 1;
+}
+
+.sketchpad-overlay {
+  width: 100%;
+  height: 500px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+}
+
+.colors {
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0;
+}
+.black {
+  width: 50px;
+  height: 50px;
+  background-color: #000000;
+  display: block;
+}
+.white {
+  width: 50px;
+  height: 50px;
+  background-color: #FFFFFF;
+  display: block;
+}
+.red {
+  width: 50px;
+  height: 50px;
+  background-color: #EB1C24;
+  display: block;
+}
+.orange {
+  width: 50px;
+  height: 50px;
+  background-color: #F98518;
+  display: block;
+}
+.yellow {
+  width: 50px;
+  height: 50px;
+  background-color: #F9DD1B;
+  display: block;
+}
+.green {
+  width: 50px;
+  height: 50px;
+  background-color: #A1DD30;
+  display: block;
+}
+.blue {
+  width: 50px;
+  height: 50px;
+  background-color: #0080EA;
+  display: block;
+}
+.purple {
+  width: 50px;
+  height: 50px;
+  background-color: #A539A8;
+  display: block;
+}
+.brown {
+  width: 50px;
+  height: 50px;
+  background-color: #623710;
+  display: block;
+}
