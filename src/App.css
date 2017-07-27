@@ -26,6 +26,26 @@ h1 {
   /*border: 5px solid #F7AF53;*/
 }
 
+.bubble-thing {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.github-link {
+  position: absolute;
+  top: 10px;
+  color: #DE4957 !important;
+  font-family: 'Cabin Sketch', cursive;
+  right: 20px;
+  cursor: pointer;
+}
+.github-link img {
+  width: 60px;
+  display: block;
+  margin: 0 auto;
+}
+
 .Canvas p {
   color: #F7AF53;
   text-transform: uppercase;
@@ -78,8 +98,10 @@ h1 {
 }
 
 .Canvas {
-  height: 367px !important;
-  width: 527px !important;
+  /*height: 367px !important;*/
+  height: 73%;
+  /*width: 527px !important;*/
+  width: 92%;
   margin-top: 70px !important;
 }
 
@@ -112,6 +134,7 @@ h1 {
 }
 .Menu p {
   color: #FFFFFF;
+  text-shadow: -2px 0 #00B0DC, 0 2px #00B0DC, 2px 0 #00B0DC, 0 -2px #00B0DC;
   font-family: 'Cabin Sketch', cursive;
   margin: 0;
 }
@@ -206,6 +229,7 @@ button {
   content: "";
   /*display: table;*/
   clear: both;
+  min-width: 990px;
   padding-top: 50px;
   /*cursor: pointer;*/
 }
@@ -267,7 +291,7 @@ input.guess::placeholder {
 .game-header {
   /*background-color: #FEF89A;*/
   /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
-  text-shadow: -2px 0 #901315, 0 2px #901315, 2px 0 #901315, 0 -2px #901315;
+  /*text-shadow: -2px 0 #901315, 0 2px #901315, 2px 0 #901315, 0 -2px #901315;*/
   /*width: 300px;*/
   /*padding: 5px;*/
   /*border: 1px solid red;*/
@@ -301,7 +325,7 @@ input.guess::placeholder {
 }
 
 .players {
-  width: 20%;
+  width: 290px;
   text-align: left;
   height: auto;
 }
@@ -372,7 +396,8 @@ input.guess::placeholder {
   box-sizing: border-box;
 }
 .chat input {
-  width: 220px;
+  /*width: 220px;*/
+  width: 80%;
   height: 30px;
   /*border-radius: 20px;*/
   color: #FFFFFF;
@@ -518,7 +543,8 @@ input.guess::placeholder {
   /*z-index: 1;*/
   background-color: #FFFFFF;
   position: absolute;
-  width: 250px;
+  /*width: 250px;*/
+  width: 75%;
   left: 30px;
   top: 60px;
   border: none;

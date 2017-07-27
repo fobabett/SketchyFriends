@@ -69,6 +69,10 @@ class Menu extends Component {
     return (
         (currentPath === '/') ?  (
           <div className="Menu">
+            <img src={require('../bubble.png')} className="bubble-thing" />
+            <a className="github-link" href="https://github.com/fobabett/SketchyFriends">
+              <img src={require('../github.png')} />Fork on Github
+            </a>
             <h1>Sketchy Friends</h1>
             <p>Draw the secret word / guess what your friend is drawing.</p>
             <p className={ this.state.displayError ? "warning" : "warning hidden"}>{ this.state.error }</p>
