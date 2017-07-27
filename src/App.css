@@ -4,7 +4,7 @@
 
 html,body,.content,.App {
   height: 100%;
-  background: linear-gradient( 45deg, #EAFFDB, #FF9BC9 );
+  background: linear-gradient( 45deg, #23CCFD, #9EFEFF );
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -373,8 +373,9 @@ input.guess::placeholder {
   /*border-radius: 20px;*/
   color: #FFFFFF;
   text-shadow: -1px 0 #911315, 0 1px #911315, 1px 0 #911315, 0 -1px #911315;
-  border: 2px solid #E1E1E1;
+  border: 2px solid #EEB36F;
   font-size: 14px;
+  text-align: center;
 }
 
 .you {
@@ -386,7 +387,7 @@ input.guess::placeholder {
 }
 
 .modal {
-  background-color: #FEF89A;
+  /*background-color: #FEF89A;*/
   border-radius: 20px;
   padding: 20px;
   /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
@@ -394,9 +395,32 @@ input.guess::placeholder {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 300px;
   font-family: 'Cabin Sketch', cursive;
   z-index: 1;
+}
+
+.modal img {
+  width: 100%;
+}
+
+.modal-header {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  text-shadow: -2px 0 #911315, 0 2px #911315, 2px 0 #911315, 0 -2px #911315;
+}
+
+.modal-message {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  font-size: 30px;
+  text-shadow: -2px 0 #EEB36F, 0 2px #EEB36F, 2px 0 #EEB36F, 0 -2px #EEB36F;
 }
 
 .sketchpad-overlay {
@@ -564,7 +588,7 @@ input.guess::placeholder {
   top: 0;
   left: 0;
 }
-.you, .friend {
+.players .you, .players .friend {
   position: absolute;
   top: 20px;
   left: 100px;
@@ -580,4 +604,18 @@ input.guess::placeholder {
 }
 .points-earned img {
   width: 50px;
+}
+.countdown {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%);
+  width: 300px;
+  z-index: 1;
+}
+
+.countdown .count {
+  font-size: 50px;
+  color: #FFFFFF;
+  text-shadow: -2px 0 #911315, 0 2px #911315, 2px 0 #911315, 0 -2px #911315;
 }
