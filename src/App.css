@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Londrina+Outline');
 
 html,body,.content,.App {
   height: 100%;
-  background: linear-gradient( 45deg, #EAFFDB, #8ABAFF );
+  background: linear-gradient( 45deg, #EAFFDB, #FF9BC9 );
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -17,16 +18,22 @@ h1 {
   font-family: 'Cabin Sketch', cursive;
   font-size: 50px;
   color: #FFFFFF;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: #911315;
 }
 
 .active, .Canvas.active {
-  border: 5px solid #F7AF53;
+  /*border: 5px solid #F7AF53;*/
 }
 
 .Canvas p {
   color: #F7AF53;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.Canvas {
+  background-color: #FFFFFF;
 }
 
 #root {
@@ -59,19 +66,45 @@ h1 {
   height: 500px;
 }
 
+.canvas-container {
+  position: relative;
+  /*border: 1px solid red;*/
+  display: inline-block;
+  width: 40%;
+  background-image: url('./canvas.png');
+  background-size: 100% 100%;
+  padding: 20px;
+  height: 500px;
+}
+
+.Canvas {
+  height: 367px !important;
+  width: 527px !important;
+  margin-top: 70px !important;
+}
+
+.canvas-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  /*width: 100% !important;
+  /*height: 530px;*/
+}
+
 .hidden {
   display: none;
 }
 
 .Menu div {
   margin: 0 auto;
-  padding: 20px;
-  background-color: #FFFFFF;
-  width: 50%;
+  /*padding: 20px;*/
+  /*background-color: #FFFFFF;*/
+  /*width: 50%;*/
   text-align: center;
   border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  transform: translateY(50%);
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+  /*transform: translateY(50%);*/
 }
 
 .Menu p {
@@ -83,7 +116,7 @@ h1 {
 .Menu input {
   display: block;
   width: 100%;
-  border: 2px solid #E1E1E1;
+  /*border: 2px solid #E1E1E1;*/
   padding: 10px;
   background-color: #FFFFFF;
   margin: 10px;
@@ -110,7 +143,7 @@ button {
 }
 .lobby-content {
   background-color: #FFFFFF;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
   top: 50%;
   left: 50%;
   position: absolute;
@@ -128,7 +161,7 @@ button {
   background-color: #FEF89A;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
+  /*box-shadow: 0 2px 2px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);*/
   width: 50%;
   font-size: 50px;
 }
@@ -159,7 +192,7 @@ button {
 }
 
 .player.sketchy-player {
-  border: 5px solid #CF8AFF;
+  /*border: 5px solid #CF8AFF;*/
 }
 
 .sketchy-word {
@@ -171,51 +204,75 @@ button {
 }
 
 .points-earned {
-  background-color: #5AB22A;
+  /*background-color: #5AB22A;*/
   color: #FFFFFF;
   border-top: none;
   width: 40px;
   height: 40px;
   text-align: center;
-  border: none !important;
+  /*border: none !important;*/
   display: inline-block;
   position: absolute;
-  top: 50%;
-  border-radius: 50%;
+  top: -10px;
+  /*border-radius: 50%;*/
   right: 0;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.points-earned p {
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  text-shadow: -2px 0 #1FB1DA, 0 2px #1FB1DA, 2px 0 #1FB1DA, 0 -2px #1FB1DA;
 }
 
 input.guess::placeholder {
-  color: #CF8AFF;
+  color: #FFFFFF;
+  text-shadow: -1px 0 #911315, 0 1px #911315, 1px 0 #911315, 0 -1px #911315;
   text-transform: uppercase;
   font-style: 20px;
   font-weight: bold;
 }
 
 .game-header {
-  background-color: #FEF89A;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  width: 300px;
-  padding: 5px;
+  /*background-color: #FEF89A;*/
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+  text-shadow: -2px 0 #901315, 0 2px #901315, 2px 0 #901315, 0 -2px #901315;
+  /*width: 300px;*/
+  /*padding: 5px;*/
+  /*border: 1px solid red;*/
   position: absolute;
   top: 0;
-  right: 50%;
+  left: 50%;
   font-family: 'Cabin Sketch', cursive;
   z-index: 1;
-  transform: translatex(50%);
+  transform: translate(-55%);
+}
+.game-header p {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translatex(-50%);
+  color: white;
+  /*-webkit-text-stroke-width: .2px;*/
+  /*-webkit-text-stroke-color: red;*/
 }
 .players, .Canvas, .chat {
   display: inline-block;
   vertical-align: top;
   border-radius: 20px;
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
   margin: 5px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.players, .chat {
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+
 }
 
 .players {
-  width: 10%;
+  width: 20%;
   text-align: left;
   height: auto;
 }
@@ -227,30 +284,34 @@ input.guess::placeholder {
 } */
 
 .players div {
-  border-top: 2px solid #E1E1E1;
+  /*border-top: 2px solid #E1E1E1;*/
 }
 
 .Canvas {
-  width: 40%;
+  /*width: 40%;*/
+
   /*padding: 20px;*/
   position: relative;
-  border: 5px solid transparent;
+  /*border: 5px solid transparent;*/
 }
 
 .Canvas {
-  border: 5px solid transparent;
+  /*border: 5px solid transparent;*/
 }
 
 .timer {
-  background-color: #FFFFFF;
-  width: 100px;
-  height: 100px;
+  /*background-color: #FFFFFF;*/
+  /*width: 20px;*/
+  /*height: 20px;*/
   position: absolute;
-  border: 10px solid #A7A7A7;
-  color: #A7A7A7;
-  top: 0;
+  /*border: 10px solid #A7A7A7;*/
+  color: #FFFFFF;
+  text-shadow: -2px 0 #EEB36F, 0 2px #EEB36F, 2px 0 #EEB36F, 0 -2px #EEB36F;
+  top: 50px;
   font-size: 30px;
-  right: 0;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-100%);
 }
 
 .timer p {
@@ -258,12 +319,12 @@ input.guess::placeholder {
 }
 
 .timer.warning {
-  border-color: #BE4444;
-  color: #BE4444;
+  /*border-color: #BE4444;*/
+  /*color: #BE4444;*/
 }
 
 .warning {
-  color: #BE4444;
+  /*color: #BE4444;*/
 }
 
 .chat {
@@ -275,17 +336,20 @@ input.guess::placeholder {
   height: 90%;
   width: 100%;
   overflow-y: scroll;
-  border: 2px solid #E1E1E1;
+  /*border: 2px solid #E1E1E1;*/
   border-radius: 20px;
   text-align: left;
   padding: 10px;
   box-sizing: border-box;
 }
 .chat input {
-  width: 100%;
+  width: 220px;
   height: 30px;
-  border-radius: 20px;
+  /*border-radius: 20px;*/
+  color: #FFFFFF;
+  text-shadow: -1px 0 #911315, 0 1px #911315, 1px 0 #911315, 0 -1px #911315;
   border: 2px solid #E1E1E1;
+  font-size: 14px;
 }
 
 .you {
@@ -300,7 +364,7 @@ input.guess::placeholder {
   background-color: #FEF89A;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
   position: absolute;
   top: 40%;
   left: 50%;
@@ -376,4 +440,119 @@ input.guess::placeholder {
   height: 50px;
   background-color: #623710;
   display: block;
+}
+.banner {
+  width: 500px;
+}
+.chat {
+  position: relative;
+}
+.chat-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  /*z-index: -1;*/
+}
+.chat-history {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+.chat-history-container {
+  /*z-index: 1;*/
+  background-color: #FFFFFF;
+  position: absolute;
+  width: 250px;
+  left: 30px;
+  top: 60px;
+  border: none;
+  /*transform: translate(-50%);*/
+  height: 404px;
+  border-radius: 10px;
+}
+.players {
+  position: relative;
+  color: #FFFFFF;
+  font-weight: bold;
+  /*-webkit-text-stroke-width: 0.04px;*/
+  /*-webkit-text-stroke-color: #EEB36F;*/
+  text-shadow: -2px 0 #EEB36F, 0 2px #EEB36F, 2px 0 #EEB36F, 0 -2px #EEB36F;
+}
+.friend-image {
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.menu-image {
+  width: 500px;
+  height: 100%;
+}
+.menu-gui {
+  position: relative;
+  /*top: 50px;*/
+  width: 500px;
+  height: 400px;
+}
+.buttons {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.button {
+  width: 200px;
+  height: 80px;
+  position: relative;
+  cursor: pointer;
+}
+.button img {
+  width: 100%;
+  height: 100%;
+}
+.button span {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: #00B0DC;
+  font-family: 'Open Sans', sans-serif;
+}
+.player {
+  position: relative;
+  height: 100px;
+}
+.player-image {
+  position: absolute;
+  width: 100%;
+  /*height: 100%;*/
+  top: 0;
+  left: 0;
+}
+.you, .friend {
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+}
+.points {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+.points-earned img {
+  width: 50px;
 }

@@ -72,11 +72,20 @@ class Menu extends Component {
             <h1>Sketchy Friends</h1>
             <p>Draw the secret word / guess what your friend is drawing.</p>
             <p className={ this.state.displayError ? "warning" : "warning hidden"}>{ this.state.error }</p>
-            <div>
-              <button type="button" onClick={ this.startAGame }>Start a Game</button>
-              <p>or</p>
-              <input type="text" placeholder="enter game code" onChange={ this.handleChange.bind(this) }/>
-              <button type="button" onClick={ this.joinAGame.bind(this) }>Join Game</button>
+            <div className="menu-gui">
+              <img src={require('../canvas.png')} className="menu-image" alt="menu"/>
+              <div className="buttons">
+                <div className="button" onClick={ this.startAGame }>
+                  <img src={require('../button.png')}/>
+                  <span>Start a Game</span>
+                </div>
+                <p>or</p>
+                <input type="text" placeholder="enter game code" onChange={ this.handleChange.bind(this) }/>
+                <div className="button" onClick={ this.joinAGame.bind(this) }>
+                  <img src={require('../button.png')}/>
+                  <span>Join Game</span>
+                </div>
+              </div>
             </div>
           </div>
         ) : null

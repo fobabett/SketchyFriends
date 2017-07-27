@@ -27,110 +27,110 @@ class Game extends Component {
 
     this.count = 3;
 
-    if(this.props.socket === null) {
-      this.props.history.push('/');
-    } else {
+    // if(this.props.socket === null) {
+    //   this.props.history.push('/');
+    // } else {
 
-      this.props.socket.on('message', data => {
-        switch(data.OP) {
-          case 'NEW_WORD':
-            this.props.set_new_word(data.WORD);
-            this.setState({ word: data.WORD });
-            this.goodDraw = false;
-            this.correctAnswer = false;
-            this.state.round++;
-            this.newCanvas();
-            break;
-          case 'SKETCHY_PLAYER':
-            this.props.set_sketchy_friend(data.SKETCHY);
-            this.setState({
-              sketchy: data.SKETCHY
-            });
-            break;
-          case 'GOOD_DRAW':
-            this.setState({
-              points: data.POINTS,
-              opponentPoints: data.OPPONENT_POINTS
-            });
-            this.goodDraw = true;
-            this.setState({
-              pointsEarned: 1,
-              opponentPointsEarned: 3,
-              showPoints: true
-            });
-            setTimeout(() => {
-              this.setState({
-                showPoints: false
-              });
-              this.props.socket.emit('message', { OP: 'END_ROUND' });
-            },3000);
-            break;
-          case 'CORRECT_ANSWER':
-            this.setState({
-              points: data.POINTS,
-              opponentPoints: data.OPPONENT_POINTS,
-              pointsEarned: 3,
-              opponentPointsEarned: 1,
-              showPoints: true
-            });
-            setTimeout(() => {
-              this.setState({
-                showPoints: false
-              });
-            },3000);
-            this.correctAnswer = true;
-            break;
-          case 'TIMER':
-            this.setState({
-              time: data.TIME,
-            });
-            if(this.state.time === null && this.state.sketchy) {
-              this.props.socket.emit('message', { OP: 'END_ROUND' });
-            }
-            break;
-          case 'CHAT':
-            let player;
-            if(parseInt(data.PLAYER_NUM) === parseInt(this.props.playerNumber)) {
-              player = 'you';
-            } else {
-              player = 'friend';
-            }
-            let chatHistory = this.state.chatHistory;
-            chatHistory.push({ player, message: data.DATA });
+    //   this.props.socket.on('message', data => {
+    //     switch(data.OP) {
+    //       case 'NEW_WORD':
+    //         this.props.set_new_word(data.WORD);
+    //         this.setState({ word: data.WORD });
+    //         this.goodDraw = false;
+    //         this.correctAnswer = false;
+    //         this.state.round++;
+    //         this.newCanvas();
+    //         break;
+    //       case 'SKETCHY_PLAYER':
+    //         this.props.set_sketchy_friend(data.SKETCHY);
+    //         this.setState({
+    //           sketchy: data.SKETCHY
+    //         });
+    //         break;
+    //       case 'GOOD_DRAW':
+    //         this.setState({
+    //           points: data.POINTS,
+    //           opponentPoints: data.OPPONENT_POINTS
+    //         });
+    //         this.goodDraw = true;
+    //         this.setState({
+    //           pointsEarned: 1,
+    //           opponentPointsEarned: 3,
+    //           showPoints: true
+    //         });
+    //         setTimeout(() => {
+    //           this.setState({
+    //             showPoints: false
+    //           });
+    //           this.props.socket.emit('message', { OP: 'END_ROUND' });
+    //         },3000);
+    //         break;
+    //       case 'CORRECT_ANSWER':
+    //         this.setState({
+    //           points: data.POINTS,
+    //           opponentPoints: data.OPPONENT_POINTS,
+    //           pointsEarned: 3,
+    //           opponentPointsEarned: 1,
+    //           showPoints: true
+    //         });
+    //         setTimeout(() => {
+    //           this.setState({
+    //             showPoints: false
+    //           });
+    //         },3000);
+    //         this.correctAnswer = true;
+    //         break;
+    //       case 'TIMER':
+    //         this.setState({
+    //           time: data.TIME,
+    //         });
+    //         if(this.state.time === null && this.state.sketchy) {
+    //           this.props.socket.emit('message', { OP: 'END_ROUND' });
+    //         }
+    //         break;
+    //       case 'CHAT':
+    //         let player;
+    //         if(parseInt(data.PLAYER_NUM) === parseInt(this.props.playerNumber)) {
+    //           player = 'you';
+    //         } else {
+    //           player = 'friend';
+    //         }
+    //         let chatHistory = this.state.chatHistory;
+    //         chatHistory.push({ player, message: data.DATA });
   
-            this.setState({
-              chatHistory,
-            });
-            if(this.state.time === null && this.state.sketchy) {
-              this.props.socket.emit('message', { OP: 'END_ROUND' });
-            }
-            break;
-          case 'GAME_OVER':
-            this.setState({
-              gameOver: true
-            });
+    //         this.setState({
+    //           chatHistory,
+    //         });
+    //         if(this.state.time === null && this.state.sketchy) {
+    //           this.props.socket.emit('message', { OP: 'END_ROUND' });
+    //         }
+    //         break;
+    //       case 'GAME_OVER':
+    //         this.setState({
+    //           gameOver: true
+    //         });
  
-            if(parseInt(this.state.points) > parseInt(this.state.opponentPoints)) {
-              this.setState({
-                gameEndMessage: 'You Win!'
-              });
-            }
-            else if(parseInt(this.state.points) < parseInt(this.state.opponentPoints)) {
-              this.setState({
-                gameEndMessage: 'You lost :('
-              });
-            } 
-            else if(parseInt(this.state.points) === parseInt(this.state.opponentPoints)) {
-              this.setState({
-                gameEndMessage: 'It was a tie!'
-              });
-            }
-            break;
-          default:
-            break;
-        }
-      });
-    }
+    //         if(parseInt(this.state.points) > parseInt(this.state.opponentPoints)) {
+    //           this.setState({
+    //             gameEndMessage: 'You Win!'
+    //           });
+    //         }
+    //         else if(parseInt(this.state.points) < parseInt(this.state.opponentPoints)) {
+    //           this.setState({
+    //             gameEndMessage: 'You lost :('
+    //           });
+    //         } 
+    //         else if(parseInt(this.state.points) === parseInt(this.state.opponentPoints)) {
+    //           this.setState({
+    //             gameEndMessage: 'It was a tie!'
+    //           });
+    //         }
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //   });
+    // }
   }
 
   newCanvas() {
@@ -173,6 +173,7 @@ class Game extends Component {
     return (
       <div className="Game">
         <div className={ this.state.gameOver ? "game-header hidden" : "game-header" }>
+          <img className="banner" src={require('../banner.png')}/>
           <p className={ this.state.sketchy ? "sketchy-word" : "sketchy-word hidden" }><span>Draw</span> { this.state.word }</p>
           <p className={ this.state.sketchy ? "hidden" : "" }>Guess the secret word!</p>
         </div>
@@ -197,38 +198,51 @@ class Game extends Component {
         </div>
 
         <div className="players">
-          <div className="round">
-            <p>Round { this.state.round }/5</p>
-          </div>
-          <div className={ this.state.sketchy ? "player sketchy-player" : "player" }>
-            <p className="you">You</p>
-            <p>{ this.state.points } PTS</p>
-            <div className={ this.state.showPoints ? "points-earned": "hidden" }>
-              <p>{ this.state.pointsEarned }+</p>
+          <div className="players-content">
+            <div className="round">
+              <p>Round { this.state.round }/5</p>
             </div>
-          </div>
-
-          <div className={ !this.state.sketchy ? "player sketchy-player" : "player" }>
-            <p className="friend">Friend</p>
-            <p>{ this.state.opponentPoints } PTS</p>
-            <div className={ this.state.showPoints ? "points-earned": "hidden" }>
-              <p>{ this.state.opponentPointsEarned }+</p>
+            <div className={ this.state.sketchy ? "player sketchy-player" : "player" }>
+              <img src={require('../player.png')} className="player-image"/>
+              <p className="you">You</p>
+              <p className="points">{ this.state.points } PTS</p>
+              <div className={ this.state.showPoints ? "points-earned": "points-earned" }>
+                <img src={require('../button2.png')} />
+                <p>{ this.state.pointsEarned }+</p>
+              </div>
+            </div>
+  
+            <div className={ !this.state.sketchy ? "player sketchy-player" : "player" }>
+              <img src={require('../player.png')} className="player-image"/>
+              <p className="friend">Friend</p>
+              <p className="points">{ this.state.opponentPoints } PTS</p>
+              <div className={ this.state.showPoints ? "points-earned": "points-earned" }>
+                <img src={require('../button2.png')} />
+                <p>{ this.state.opponentPointsEarned }5+</p>
+              </div>
             </div>
           </div>
         </div>
-        <GameCanvas timer={ this.state.time } />
+
+        <div className="canvas-container">
+          <img className="canvas-image" src={require('../canvas.png')} />
+          <GameCanvas timer={ this.state.time } />
+        </div>
 
         <div className={ this.state.sketchy ? "chat" : "chat active" }>
-          <div className="chat-history">
-            {
-              (this.state.chatHistory) ?  (
-                this.state.chatHistory.map((data) =>  {
-                  return <p><span className={ data.player }>{ data.player }:</span> { data.message }</p>
-                })
-              ) :  null
-            }
+          <img src={require('../chat.png')} className="chat-image" />
+          <div className="chat-history-container">
+            <div className="chat-history">
+              {
+                (this.state.chatHistory) ?  (
+                  this.state.chatHistory.map((data) =>  {
+                    return <p><span className={ data.player }>{ data.player }:</span> { data.message }</p>
+                  })
+                ) :  null
+              }
+            </div>
+            <input type="text" onKeyPress={ this.checkAnswer.bind(this) } placeholder={ this.state.sketchy ? "" : "Enter answer here"} className={ this.state.sketchy ? "" : "guess"} />
           </div>
-          <input type="text" onKeyPress={ this.checkAnswer.bind(this) } placeholder={ this.state.sketchy ? "" : "Enter answer here"} className={ this.state.sketchy ? "" : "guess"} />
         </div>
       </div>
     );

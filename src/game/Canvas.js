@@ -38,7 +38,6 @@ class Canvas extends Component {
 
     return (
       <div className={ this.props.sketchy ? "Canvas active" : "Canvas" }>
-        <p className={ this.props.sketchy ? "" : "hidden" }>Draw Here</p>
         <SketchPad
           height={500}
           width={500}
@@ -52,7 +51,7 @@ class Canvas extends Component {
         />
         <div className={ this.props.sketchy ? "hidden" : "sketchpad-overlay" }></div>
         <div>
-          <div className="options" style={{marginBottom:20}} className={ this.props.sketchy ? "" : "hidden" }>
+          <div className="options" style={{marginBottom:20}} className={ this.props.sketchy ? "hidden" : "hidden" }>
             <label htmlFor="">color: </label>
             <input type="color" value={color} onChange={(e) => this.setState({color: e.target.value})} />
           </div>
