@@ -13,9 +13,12 @@ class Lobby extends Component {
     return (
       <div className="Lobby">
         <div className="lobby-content">
-          <p>Share this code with a friend!</p>
-          <p className="code">{ this.props.code }</p>
-          <p>Waiting for sketchy friend...</p>
+          <img src={require('../canvas.png')} />
+          <div>
+            <p>Share this code with a friend!</p>
+            <p className="code">{ this.props.code }</p>
+            <p>Waiting for sketchy friend...</p>
+          </div>
         </div>
       </div>
     );

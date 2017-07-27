@@ -18,8 +18,8 @@ h1 {
   font-family: 'Cabin Sketch', cursive;
   font-size: 50px;
   color: #FFFFFF;
-  -webkit-text-stroke-width: 0.1px;
-  -webkit-text-stroke-color: #911315;
+  text-shadow: -2px 0 #911315, 0 2px #911315, 2px 0 #911315, 0 -2px #911315;
+  letter-spacing: -5px;
 }
 
 .active, .Canvas.active {
@@ -110,6 +110,7 @@ h1 {
 .Menu p {
   color: #FFFFFF;
   font-family: 'Cabin Sketch', cursive;
+  margin: 0;
 }
 
 .Menu button,
@@ -121,9 +122,18 @@ h1 {
   background-color: #FFFFFF;
   margin: 10px;
   border-radius: 20px;
-  font-family: 'Cabin Sketch', cursive;
   font-size: 20px;
   box-sizing: border-box;
+  text-align: center;
+}
+
+.Menu input {
+  color: #FFFFFF;
+  text-shadow: -1px 0 #911315, 0 1px #911315, 1px 0 #911315, 0 -1px #911315;
+}
+.Menu input::placeholder {
+  color: #FFFFFF;
+  text-shadow: -1px 0 #911315, 0 1px #911315, 1px 0 #911315, 0 -1px #911315;
 }
 
 button:hover {
@@ -142,25 +152,40 @@ button {
   position: relative;
 }
 .lobby-content {
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
   /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
-  top: 50%;
+  top: 20%;
   left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  width: 50%;
+  position: relative;
+  transform: translate(-50%);
+  width: 500px;
   padding: 20px;
   border-radius: 20px;
 }
 
+.lobby-content div {
+  position: relative;
+  z-index: 1;
+  top: 50px;
+}
+
+.Lobby img {
+  width: 100%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
 .code {
-  color: #A5CDF5;
+  color: #FFFFFF;
   margin: 0 auto;
   font-family: 'Cabin Sketch', cursive;
   font-weight: bold;
-  background-color: #FEF89A;
+  background-color: #FFFFFF;
   border-radius: 20px;
   padding: 20px;
+  text-shadow: -2px 0 #911315, 0 2px #911315, 2px 0 #911315, 0 -2px #911315;
   /*box-shadow: 0 2px 2px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);*/
   width: 50%;
   font-size: 50px;
@@ -500,6 +525,7 @@ input.guess::placeholder {
   height: 400px;
 }
 .buttons {
+  margin-top: 20px !important;
   position: absolute;
   top: 60px;
   left: 50%;
@@ -524,8 +550,7 @@ input.guess::placeholder {
   font-size: 14px;
   font-weight: bold;
   color: #FFFFFF;
-  -webkit-text-stroke-width: 0.1px;
-  -webkit-text-stroke-color: #00B0DC;
+  text-shadow: -2px 0 #00B0DC, 0 2px #00B0DC, 2px 0 #00B0DC, 0 -2px #00B0DC;
   font-family: 'Open Sans', sans-serif;
 }
 .player {
