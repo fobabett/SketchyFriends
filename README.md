@@ -1,4 +1,5 @@
 # Sketchy Friends
+![logos](/logos.png?raw=true "React + NodeJS + Socket.io")
 a realtime game built with React. ( Desktop Only )
 Draw something awesome and make your friend guess. Player with the most points wins!
 
